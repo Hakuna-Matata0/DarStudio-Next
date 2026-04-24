@@ -29,6 +29,13 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("mobile-menu-open", isOpen);
+    return () => {
+      document.body.classList.remove("mobile-menu-open");
+    };
+  }, [isOpen]);
+
   const handleAnchorClick = (href: string) => {
     setIsOpen(false);
     const element = document.querySelector(href);
@@ -112,12 +119,22 @@ export function Navigation() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className="fixed inset-0 z-50 md:hidden" style={{ backgroundColor: "#0B1220" }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-50 md:hidden overflow-hidden"
+            style={{ backgroundColor: "#0B1220", height: "100dvh" }}
+          >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1.5, opacity: 0.3 }} exit={{ scale: 0, opacity: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(0,224,198,0.3) 0%, transparent 70%)" }} />
             </div>
             <div className="relative h-full flex flex-col">
-              <div className="flex items-center justify-between p-6 border-b border-[rgba(255,255,255,0.08)]">
+              <div
+                className="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)]"
+                style={{ padding: "clamp(12px, 3vh, 20px) clamp(16px, 4vw, 24px)" }}
+              >
                 <div className="flex items-center gap-3">
                   <img src="/logo.svg" alt={`${siteConfig.brandName} logo`} className="h-8 w-8 shrink-0" />
                   <span
@@ -137,17 +154,20 @@ export function Navigation() {
                   <X className="h-6 w-6 text-[#00E0C6]" />
                 </button>
               </div>
-              <nav className="flex-1 flex items-center justify-center p-8">
-                <div className="space-y-2 w-full max-w-md">
+              <nav
+                className="flex-1 min-h-0 flex items-center justify-center"
+                style={{ padding: "clamp(12px, 3vh, 20px) clamp(16px, 4vw, 24px)" }}
+              >
+                <div className="space-y-1.5 w-full max-w-md">
                   {navItems.map((item, index) => (
                     item.isExternal ? (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block w-full rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
+                        className="block w-full rounded-2xl border px-5 py-4 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
                         style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}
                       >
-                        <span className="text-lg font-semibold">{item.label}</span>
+                        <span className="text-base font-semibold">{item.label}</span>
                       </Link>
                     ) : (
                       <motion.button
@@ -156,23 +176,54 @@ export function Navigation() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
                         onClick={() => handleAnchorClick(item.href)}
-                        className="block w-full rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
+                        className="block w-full rounded-2xl border px-5 py-4 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
                         style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}
                       >
-                        <span className="text-lg font-semibold">{item.label}</span>
+                        <span className="text-base font-semibold">{item.label}</span>
                       </motion.button>
                     )
                   ))}
                 </div>
               </nav>
-              <div className="p-8 space-y-4">
-                <a href={`mailto:${siteConfig.email}`} className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-xl font-bold" style={{ fontFamily: "var(--font-body)", background: "linear-gradient(135deg, #00E0C6, #2E90FA)", color: "#0B1220" }}>
+              <div
+                className="flex flex-col"
+                style={{
+                  padding: "clamp(12px, 3vh, 20px) clamp(16px, 4vw, 24px)",
+                  minHeight: "clamp(160px, 22vh, 240px)",
+                }}
+              >
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-bold"
+                  style={{ fontFamily: "var(--font-body)", background: "linear-gradient(135deg, #00E0C6, #2E90FA)", color: "#0B1220" }}
+                >
                   <Mail className="w-5 h-5" />
                   <span>Napisz wiadomość</span>
                 </a>
-                <div className="flex justify-center gap-4">
-                  <a href={siteConfig.social.facebook} className="w-12 h-12 rounded-full border flex items-center justify-center" style={{ borderColor: "rgba(255,255,255,0.08)" }}><Facebook className="w-5 h-5" /></a>
-                  <a href={siteConfig.social.instagram} className="w-12 h-12 rounded-full border flex items-center justify-center" style={{ borderColor: "rgba(255,255,255,0.08)" }}><Instagram className="w-5 h-5" /></a>
+
+                <div className="mt-auto pt-5">
+                  <div className="flex justify-center gap-4">
+                    <a
+                      href={siteConfig.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)]"
+                      style={{ backgroundColor: "#121A2B", borderColor: "rgba(255,255,255,0.08)" }}
+                    >
+                      <Facebook className="w-5 h-5 text-[#00E0C6] transition-colors duration-300" />
+                    </a>
+                    <a
+                      href={siteConfig.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)]"
+                      style={{ backgroundColor: "#121A2B", borderColor: "rgba(255,255,255,0.08)" }}
+                    >
+                      <Instagram className="w-5 h-5 text-[#00E0C6] transition-colors duration-300" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

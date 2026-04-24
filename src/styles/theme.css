@@ -188,6 +188,12 @@
   }
 }
 
+@layer utilities {
+  body.mobile-menu-open .side-actions {
+    display: none !important;
+  }
+}
+
 @keyframes accordion-down {
   from {
     height: 0;

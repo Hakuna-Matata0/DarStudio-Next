@@ -30,7 +30,7 @@ export function SideActions() {
   };
 
   return (
-    <div className="fixed right-3 bottom-3 md:right-6 md:bottom-6 z-[60] flex flex-col gap-2 md:gap-3">
+    <div className="side-actions fixed right-3 bottom-3 md:right-6 md:bottom-6 z-[60] flex flex-col gap-2 md:gap-3">
       <motion.a
         href={whatsappHref}
         target="_blank"
