@@ -60,6 +60,24 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const hasRealPhone = siteConfig.phone && !siteConfig.phone.includes("123 456 789");
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: siteConfig.brandName,
+    url: siteConfig.siteUrl,
+    email: siteConfig.email,
+    ...(hasRealPhone ? { telephone: siteConfig.phone } : {}),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.legal.address.streetAddress,
+      postalCode: siteConfig.legal.address.postalCode,
+      addressLocality: siteConfig.legal.address.addressLocality,
+      addressCountry: siteConfig.legal.address.addressCountry,
+    },
+    sameAs: [siteConfig.social.facebook, siteConfig.social.instagram].filter(Boolean),
+  } as const;
+
   return (
     <html lang="pl">
       <head>
@@ -70,6 +88,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-blockingmode="auto"
           type="text/javascript"
           strategy="beforeInteractive"
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body>
