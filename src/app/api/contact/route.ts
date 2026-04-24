@@ -10,6 +10,10 @@ type ContactPayload = {
   budget?: string;
 };
 
+type ValidateResult =
+  | { ok: true; data: ContactPayload }
+  | { ok: false; error: string };
+
 function isNonEmptyString(v: unknown): v is string {
   return typeof v === "string" && v.trim().length > 0;
 }
@@ -20,7 +24,7 @@ function asOptionalString(v: unknown): string | undefined {
   return t.length ? t : undefined;
 }
 
-function validate(body: any): { ok: true; data: ContactPayload } | { ok: false; error: string } {
+function validate(body: any): ValidateResult {
   const name = typeof body?.name === "string" ? body.name.trim() : "";
   const email = typeof body?.email === "string" ? body.email.trim() : "";
   const subject = typeof body?.subject === "string" ? body.subject.trim() : "";
@@ -28,12 +32,12 @@ function validate(body: any): { ok: true; data: ContactPayload } | { ok: false; 
   const phone = asOptionalString(body?.phone);
   const budget = asOptionalString(body?.budget);
 
-  if (!name || name.length < 2) return { ok: false, error: "Nieprawidłowe imię i nazwisko." };
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, error: "Nieprawidłowy email." };
-  if (!subject || subject.length < 3) return { ok: false, error: "Nieprawidłowy temat." };
-  if (!message || message.length < 10) return { ok: false, error: "Wiadomość jest zbyt krótka." };
+  if (!name || name.length < 2) return { ok: false as const, error: "Nieprawidłowe imię i nazwisko." };
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false as const, error: "Nieprawidłowy email." };
+  if (!subject || subject.length < 3) return { ok: false as const, error: "Nieprawidłowy temat." };
+  if (!message || message.length < 10) return { ok: false as const, error: "Wiadomość jest zbyt krótka." };
 
-  return { ok: true, data: { name, email, phone, subject, message, budget } };
+  return { ok: true as const, data: { name, email, phone, subject, message, budget } };
 }
 
 export async function POST(req: Request) {
@@ -45,7 +49,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
     const parsed = validate(body);
-    if (!parsed.ok) {
+    if (parsed.ok === false) {
       return NextResponse.json({ ok: false, error: parsed.error }, { status: 400 });
     }
 
