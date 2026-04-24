@@ -34,7 +34,7 @@ function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-32 px-6 relative overflow-hidden">
+    <section id="process" className="py-20 md:py-32 px-6 relative overflow-hidden">
       {/* Background decoration */}
       <motion.div
         animate={{

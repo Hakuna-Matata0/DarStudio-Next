@@ -42,7 +42,7 @@ function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-32 px-6 relative overflow-hidden">
+    <section id="services" className="py-20 md:py-32 px-6 relative overflow-hidden">
       {/* Animated background gradient */}
       <motion.div
         className="absolute top-0 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-20 pointer-events-none"

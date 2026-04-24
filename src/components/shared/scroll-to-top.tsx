@@ -61,8 +61,8 @@ export function ScrollToTop({ showWhenBottomDistancePx = 900, fixed = true }: Pr
           exit={{ opacity: 0, y: 12, scale: 0.95 }}
           transition={{ duration: 0.2 }}
           className={[
-            fixed ? "fixed bottom-6 right-6 z-[60]" : "",
-            "w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300",
+            fixed ? "fixed bottom-3 right-3 md:bottom-6 md:right-6 z-[60]" : "",
+            "w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border transition-all duration-300",
           ].join(" ")}
           style={{
             backgroundColor: "#121A2B",
@@ -72,7 +72,7 @@ export function ScrollToTop({ showWhenBottomDistancePx = 900, fixed = true }: Pr
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
-          <ArrowUp className="h-5 w-5 text-[#00E0C6]" />
+          <ArrowUp className="h-4 w-4 md:h-5 md:w-5 text-[#00E0C6]" />
         </motion.button>
       )}
     </AnimatePresence>

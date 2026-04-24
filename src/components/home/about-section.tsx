@@ -35,7 +35,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-32 px-6 relative">
+    <section id="about" className="py-20 md:py-32 px-6 relative">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}

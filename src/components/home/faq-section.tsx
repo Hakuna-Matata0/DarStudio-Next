@@ -39,7 +39,7 @@ function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-32 px-6 relative overflow-hidden">
+    <section id="faq" className="py-20 md:py-32 px-6 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         animate={{

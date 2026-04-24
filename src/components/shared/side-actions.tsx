@@ -30,28 +30,28 @@ export function SideActions() {
   };
 
   return (
-    <div className="fixed right-6 bottom-6 z-[60] flex flex-col gap-3">
+    <div className="fixed right-3 bottom-3 md:right-6 md:bottom-6 z-[60] flex flex-col gap-2 md:gap-3">
       <motion.a
         href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp Business"
-        className="w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
         style={baseStyle}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
       >
-        <WhatsAppIcon className="h-5 w-5 text-[#00E0C6]" />
+        <WhatsAppIcon className="h-4 w-4 md:h-5 md:w-5 text-[#00E0C6]" />
       </motion.a>
 
       <Link href="/brief" aria-label="Przejdź do briefu">
         <motion.div
-          className="w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
           style={baseStyle}
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
-          <FileText className="h-5 w-5 text-[#00E0C6]" />
+          <FileText className="h-4 w-4 md:h-5 md:w-5 text-[#00E0C6]" />
         </motion.div>
       </Link>
 

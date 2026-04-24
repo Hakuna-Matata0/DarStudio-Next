@@ -39,6 +39,7 @@ import * as Switch from "@radix-ui/react-switch";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { Footer } from "@/components/home/footer";
 
 export function BriefPageClient() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -1582,6 +1583,8 @@ export function BriefPageClient() {
           </motion.div>
         </div>
       </div>
+
+      <Footer />
 
       <style>{`
         .input-field {
