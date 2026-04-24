@@ -438,6 +438,8 @@ function SocialIconButton({
   href?: string;
   icon: any;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   if (!href) {
     return null;
   }
@@ -446,15 +448,21 @@ function SocialIconButton({
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Link do social media"
-      className="w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
       style={{
-        backgroundColor: "rgba(18,26,43,0.6)",
-        borderColor: "rgba(255,255,255,0.08)",
+        backgroundColor: isHovered ? "#182235" : "#121A2B",
+        borderColor: isHovered ? "rgba(0,224,198,0.3)" : "rgba(255,255,255,0.08)",
       }}
     >
-      <Icon className="w-5 h-5" style={{ color: "rgba(230, 237, 246, 0.85)" }} />
+      <Icon
+        className={`h-5 w-5 transition-colors duration-300 ${
+          isHovered ? "text-[#00E0C6]" : "text-[rgba(230,237,246,0.75)]"
+        }`}
+      />
     </a>
   );
 }

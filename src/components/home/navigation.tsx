@@ -56,7 +56,7 @@ export function Navigation() {
           <div className="flex items-center justify-between">
             <button
               onClick={() => handleAnchorClick("#hero")}
-              className="flex items-center gap-3 text-2xl font-bold"
+              className="flex items-center gap-3 text-2xl font-bold cursor-pointer"
               style={{
                 fontFamily: "var(--font-display)",
               }}
@@ -77,11 +77,21 @@ export function Navigation() {
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) =>
                 item.isExternal ? (
-                  <Link key={item.href} href={item.href} className="text-sm font-medium transition-colors duration-300 hover:text-[#00E0C6]" style={{ fontFamily: "var(--font-body)", color: "rgba(230, 237, 246, 0.75)" }}>
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm font-medium transition-colors duration-300 text-[rgba(230,237,246,0.75)] hover:text-[#00E0C6] cursor-pointer"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
                     {item.label}
                   </Link>
                 ) : (
-                  <button key={item.href} onClick={() => handleAnchorClick(item.href)} className="text-sm font-medium transition-colors duration-300 hover:text-[#00E0C6]" style={{ fontFamily: "var(--font-body)", color: "rgba(230, 237, 246, 0.75)" }}>
+                  <button
+                    key={item.href}
+                    onClick={() => handleAnchorClick(item.href)}
+                    className="text-sm font-medium transition-colors duration-300 text-[rgba(230,237,246,0.75)] hover:text-[#00E0C6] cursor-pointer"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
                     {item.label}
                   </button>
                 ),
@@ -131,11 +141,24 @@ export function Navigation() {
                 <div className="space-y-2 w-full max-w-md">
                   {navItems.map((item, index) => (
                     item.isExternal ? (
-                      <Link key={item.href} href={item.href} className="block w-full rounded-2xl border p-5 text-left" style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}>
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block w-full rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
+                        style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}
+                      >
                         <span className="text-lg font-semibold">{item.label}</span>
                       </Link>
                     ) : (
-                      <motion.button key={item.href} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }} onClick={() => handleAnchorClick(item.href)} className="block w-full rounded-2xl border p-5 text-left" style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}>
+                      <motion.button
+                        key={item.href}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        onClick={() => handleAnchorClick(item.href)}
+                        className="block w-full rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(0,224,198,0.3)] cursor-pointer"
+                        style={{ backgroundColor: "rgba(18,26,43,0.7)", borderColor: "rgba(255,255,255,0.08)" }}
+                      >
                         <span className="text-lg font-semibold">{item.label}</span>
                       </motion.button>
                     )
