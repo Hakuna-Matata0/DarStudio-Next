@@ -254,7 +254,7 @@ export function BriefPageClient() {
                 fontFamily: "var(--font-display)",
               }}
             >
-                <Logo className="h-9 sm:h-10 md:h-11 w-auto shrink-0" title={siteConfig.brandName} />
+                <Logo className="h-8 sm:h-9 md:h-10 w-auto shrink-0" title={siteConfig.brandName} />
             </Link>
 
             <div className="flex items-center gap-4">
