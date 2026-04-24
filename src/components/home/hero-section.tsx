@@ -11,7 +11,10 @@ import { siteConfig } from "@/content/site-config";
 
 function HeroSection() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+    <section
+      id="hero"
+      className="min-h-0 md:min-h-screen flex items-start md:items-center justify-center px-6 pt-32 pb-10 md:py-20 relative overflow-hidden"
+    >
 
       {/* 3D Visual Element - Right Side */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full hidden xl:block pointer-events-none">
@@ -148,7 +151,7 @@ function HeroSection() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-center lg:text-left">
         <motion.div
@@ -213,7 +216,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed"
           style={{
             fontFamily: "var(--font-body)",
             color: "rgba(230, 237, 246, 0.75)",
@@ -226,13 +229,15 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-6 md:mb-16"
         >
-          <GlowButton href="#contact" primary>
+          <GlowButton href="#contact" primary className="w-full sm:w-auto">
             Porozmawiajmy o projekcie
             <ArrowRight className="ml-2 h-5 w-5" />
           </GlowButton>
-          <GlowButton href="#services">Usługi</GlowButton>
+          <GlowButton href="#services" className="w-full sm:w-auto">
+            Usługi
+          </GlowButton>
         </motion.div>
 
           </div>
@@ -252,7 +257,7 @@ function HeroSection() {
                 }}
               />
               {/* Vector illustration for mobile */}
-              <div className="relative w-full h-full flex items-center justify-center p-4">
+              <div className="relative w-full h-full flex items-center justify-center p-3 md:p-4">
                 <LaptopIllustration />
               </div>
             </motion.div>

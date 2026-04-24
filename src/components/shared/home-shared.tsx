@@ -21,15 +21,17 @@ export function GlowButton({
   children,
   primary = false,
   large = false,
+  className: classNameProp = "",
 }: {
   href: string;
   children: React.ReactNode;
   primary?: boolean;
   large?: boolean;
+  className?: string;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const isInternal = href.startsWith("/");
-  const className = `inline-flex items-center justify-center rounded-xl font-bold transition-all duration-300 ${large ? "px-8 py-4 text-lg" : "px-6 py-3"}`;
+  const className = `inline-flex items-center justify-center rounded-xl font-bold transition-all duration-300 ${large ? "px-8 py-4 text-lg" : "px-6 py-3"} ${classNameProp}`;
   const style = {
     fontFamily: "var(--font-body)",
     background: primary
