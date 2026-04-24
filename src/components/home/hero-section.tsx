@@ -184,14 +184,14 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="mb-6"
+          className="mb-6 space-y-3"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span className="block text-5xl md:text-6xl lg:text-6xl font-bold mb-4 tracking-tight">
+          <span className="block text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
             Strony Internetowe,
           </span>
           <motion.span
-            className="block text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight relative inline-block"
+            className="block text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight leading-[1.1] relative inline-block"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
