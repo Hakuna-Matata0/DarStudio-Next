@@ -3,10 +3,51 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { siteConfig } from "@/content/site-config";
 
 export const metadata: Metadata = {
-  title: "WebDev",
-  description: "Nowoczesne strony internetowe i landing page w Next.js.",
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: {
+    default: `${siteConfig.brandName} — ${siteConfig.defaultTitle}`,
+    template: `%s — ${siteConfig.brandName}`,
+  },
+  description: siteConfig.defaultDescription,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.brandName,
+    title: `${siteConfig.brandName} — ${siteConfig.defaultTitle}`,
+    description: siteConfig.defaultDescription,
+    locale: "pl_PL",
+    images: [
+      {
+        url: "/og.svg",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.brandName} — ${siteConfig.defaultTitle}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.brandName} — ${siteConfig.defaultTitle}`,
+    description: siteConfig.defaultDescription,
+    images: ["/og.svg"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },

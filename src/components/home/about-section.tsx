@@ -10,11 +10,11 @@ import { SectionBadge, GlowButton } from "@/components/shared/home-shared";
 import { siteConfig } from "@/content/site-config";
 
 function AboutSection() {
-  const stats = [
-    { value: "50+", label: "Zrealizowanych projektów" },
-    { value: "5+", label: "Lat doświadczenia" },
-    { value: "98%", label: "Zadowolonych klientów" },
-  ];
+  // const stats = [
+  //   { value: "50+", label: "Zrealizowanych projektów" },
+  //   { value: "5+", label: "Lat doświadczenia" },
+  //   { value: "98%", label: "Zadowolonych klientów" },
+  // ];
 
   const values = [
     {
@@ -102,7 +102,8 @@ function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            {/* Stats Grid */}
+            {/*
+            // Stats Grid (do przywrócenia w przyszłości)
             <div className="grid grid-cols-3 gap-4 mb-8">
               {stats.map((stat, idx) => (
                 <motion.div
@@ -117,7 +118,6 @@ function AboutSection() {
                     borderColor: "rgba(255,255,255,0.08)",
                   }}
                 >
-                  {/* Glow effect on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
@@ -152,6 +152,7 @@ function AboutSection() {
                 </motion.div>
               ))}
             </div>
+            */}
 
             {/* Values Cards */}
             <div className="space-y-4">

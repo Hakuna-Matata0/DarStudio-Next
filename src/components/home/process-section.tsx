@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
-import { Code2, Palette, Zap, CheckCircle2, ArrowRight, Mail, Facebook, Instagram, Star, Menu, X, Send, MapPin, Phone, Clock, FileText, Building2, Target, Shield, Plus, Minus } from "lucide-react";
+import { Code2, Palette, Zap, CheckCircle2, Mail, Facebook, Instagram, Star, Menu, X, Send, MapPin, Phone, Clock, FileText, Building2, Target, Shield, Plus, Minus } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { useState, useEffect, useRef } from "react";
 import { LaptopIllustration } from "@/components/LaptopIllustration";
@@ -158,16 +158,6 @@ function ProcessStep({ number, title, description, index }: { number: string; ti
           <p style={{ fontFamily: "var(--font-body)", color: "rgba(230, 237, 246, 0.75)", lineHeight: "1.7" }}>
             {description}
           </p>
-
-          {/* Decorative arrow */}
-          <motion.div
-            className="mt-4"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ArrowRight className="h-5 w-5 text-[#00E0C6]" />
-          </motion.div>
         </motion.div>
       </div>
     </motion.div>

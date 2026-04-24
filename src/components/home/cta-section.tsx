@@ -194,20 +194,9 @@ function CTASection() {
                     href={`mailto:${siteConfig.email}`}
                   />
                   <ContactInfoItem
-                    icon={Phone}
-                    label="Telefon"
-                    value={siteConfig.phone}
-                    href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-                  />
-                  <ContactInfoItem
                     icon={MapPin}
                     label="Lokalizacja"
                     value={siteConfig.location}
-                  />
-                  <ContactInfoItem
-                    icon={Clock}
-                    label="Dostępność"
-                    value={siteConfig.availability}
                   />
                 </div>
 
