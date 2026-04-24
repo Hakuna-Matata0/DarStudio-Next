@@ -47,20 +47,18 @@ function Footer() {
           <div className="flex justify-center gap-6 pt-6 border-t border-[rgba(255,255,255,0.08)]">
             <a
               href="/polityka-prywatnosci"
-              className="text-sm transition-colors duration-300 hover:text-[#00E0C6]"
+              className="text-sm transition-colors duration-300 text-[rgba(230,237,246,0.75)] hover:text-[#00E0C6] cursor-pointer"
               style={{
                 fontFamily: "var(--font-body)",
-                color: "rgba(230, 237, 246, 0.75)",
               }}
             >
               Polityka prywatności
             </a>
             <a
               href="/brief"
-              className="text-sm transition-colors duration-300 hover:text-[#00E0C6]"
+              className="text-sm transition-colors duration-300 text-[rgba(230,237,246,0.75)] hover:text-[#00E0C6] cursor-pointer"
               style={{
                 fontFamily: "var(--font-body)",
-                color: "rgba(230, 237, 246, 0.75)",
               }}
             >
               Brief
