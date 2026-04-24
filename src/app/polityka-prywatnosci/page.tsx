@@ -3,6 +3,7 @@ import { Footer } from "@/components/home/footer";
 import { siteConfig } from "@/content/site-config";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Logo } from "@/components/brand/logo";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
@@ -36,17 +37,7 @@ export default function PrivacyPolicyPage() {
                 fontFamily: "var(--font-display)",
               }}
             >
-              <img src="/logo.svg" alt={`${siteConfig.brandName} logo`} className="h-8 w-8 shrink-0" />
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #00E0C6, #2E90FA)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {siteConfig.brandName}
-              </span>
+              <Logo className="h-9 sm:h-10 md:h-11 w-auto shrink-0" title={siteConfig.brandName} />
             </Link>
 
             <Link

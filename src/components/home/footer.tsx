@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import { LaptopIllustration } from "@/components/LaptopIllustration";
 import { SectionBadge, GlowButton } from "@/components/shared/home-shared";
 import { siteConfig } from "@/content/site-config";
+import { Logo } from "@/components/brand/logo";
 
 function Footer() {
   return (
@@ -18,19 +19,7 @@ function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <a href="#hero" className="inline-flex items-center gap-3 mb-2">
-                <img src="/logo.svg" alt={`${siteConfig.brandName} logo`} className="h-8 w-8 shrink-0" />
-                <span
-                  className="text-2xl font-bold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    background: "linear-gradient(135deg, #00E0C6, #2E90FA)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  {siteConfig.brandName}
-                </span>
+                          <Logo className="h-10 sm:h-11 md:h-12 w-auto shrink-0" title={siteConfig.brandName} />
               </a>
               <p className="text-sm" style={{ fontFamily: "var(--font-body)", color: "rgba(230, 237, 246, 0.55)" }}>
                 © 2026 Wszelkie prawa zastrzeżone

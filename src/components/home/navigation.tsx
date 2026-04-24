@@ -6,6 +6,7 @@ import { Menu, X, Mail, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/content/site-config";
+import { Logo } from "@/components/brand/logo";
 
 const navItems = [
   { label: "Start", href: "#hero" },
@@ -68,17 +69,7 @@ export function Navigation() {
                 fontFamily: "var(--font-display)",
               }}
             >
-              <img src="/logo.svg" alt={`${siteConfig.brandName} logo`} className="h-8 w-8 shrink-0" />
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #00E0C6, #2E90FA)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {siteConfig.brandName}
-              </span>
+              <Logo className="h-8 sm:h-9 md:h-10 w-auto shrink-0" title={siteConfig.brandName} />
             </button>
 
             <div className="hidden md:flex items-center gap-8">
@@ -136,19 +127,7 @@ export function Navigation() {
                 style={{ padding: "clamp(12px, 3vh, 20px) clamp(16px, 4vw, 24px)" }}
               >
                 <div className="flex items-center gap-3">
-                  <img src="/logo.svg" alt={`${siteConfig.brandName} logo`} className="h-8 w-8 shrink-0" />
-                  <span
-                    className="text-2xl font-bold"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      background: "linear-gradient(135deg, #00E0C6, #2E90FA)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    {siteConfig.brandName}
-                  </span>
+                  <Logo className="h-8 sm:h-9 w-auto shrink-0" title={siteConfig.brandName} />
                 </div>
                 <button onClick={() => setIsOpen(false)} className="w-12 h-12 flex items-center justify-center rounded-xl border transition-all duration-300" style={{ backgroundColor: "#182235", borderColor: "rgba(255,255,255,0.08)" }}>
                   <X className="h-6 w-6 text-[#00E0C6]" />
